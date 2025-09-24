@@ -1,0 +1,149 @@
+/* src/styles/index.css - global */
+
+/* Reset & base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+  top: 0 !important;
+  position: relative;
+}
+* {
+  box-sizing: border-box;
+  line-height: normal;
+  font-family: inherit;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* Leaflet map fix (if used) */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
+
+/* ---------- Translator UI ---------- */
+.translator-box {
+  position: fixed;
+  top: 122px;
+  right: 1px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #e6edf0;
+  box-shadow: 0 8px 30px rgba(20, 30, 40, 0.08);
+  font-size: 14px;
+}
+
+.translator-emoji {
+  font-size: 18px;
+}
+.translator-label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.translator-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+.translator-btn:hover {
+  background: #fbfdfc;
+}
+
+/* dropdown menu */
+.translator-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 220px;
+  max-height: 260px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e6edf0;
+  box-shadow: 0 12px 30px rgba(20, 30, 40, 0.08);
+  z-index: 99999; /* ensure above navbar */
+}
+
+.translator-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+.translator-item:hover {
+  background: #f1fdf6;
+}
+.translator-item.selected {
+  font-weight: 700;
+  background: #e6fff0;
+}
+
+/* Hide Google junk but keep select working */
+#google_translate_element {
+  display: none !important;
+}
+
+.goog-logo-link,
+.goog-te-gadget-icon,
+.goog-te-gadget img,
+.goog-te-gadget span,
+.goog-te-gadget {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove Google top banner (iframe) */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* Remove injected wrapper */
+body > .skiptranslate {
+  display: none !important;
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .translator-box {
+    top: 8px;
+    right: 8px;
+    padding: 6px;
+    font-size: 13px;
+  }
+  .translator-menu {
+    right: 6px;
+    width: 180px;
+    max-height: 200px;
+  }
+}

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #FAFAFA; /* gray-50 */
+    --color-foreground: #1B1B1B; /* gray-900 */
+    --color-border: #E0E0E0; /* gray-300 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #2E7D32; /* green-800 */
+    
+    /* Card & Surface Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1B1B1B; /* gray-900 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1B1B1B; /* gray-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F5F5F5; /* gray-100 */
+    --color-muted-foreground: #666666; /* gray-600 */
+    
+    /* Brand Primary Colors */
+    --color-primary: #2E7D32; /* green-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Brand Secondary Colors */
+    --color-secondary: #8BC34A; /* light-green-500 */
+    --color-secondary-foreground: #1B1B1B; /* gray-900 */
+    
+    /* Accent Colors */
+    --color-accent: #FF9800; /* orange-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Status Colors */
+    --color-success: #4CAF50; /* green-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #FFC107; /* amber-500 */
+    --color-warning-foreground: #1B1B1B; /* gray-900 */
+    
+    --color-error: #F44336; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #F44336; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Additional Brand Colors */
+    --color-earth-brown: #8D6E63; /* brown-400 */
+    --color-earth-brown-foreground: #FFFFFF; /* white */
+    
+    --color-trust-blue: #1565C0; /* blue-800 */
+    --color-trust-blue-foreground: #FFFFFF; /* white */
+    
+    --color-text-primary: #212121; /* gray-800 */
+    --color-text-secondary: #616161; /* gray-700 */
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  .font-accent {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .shadow-elevation {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-elevation-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .animate-count-up {
+    animation: countUp 2s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulseGentle 3s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .animate-celebration {
+    animation: celebration 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGentle {
+  0%, 100% {
+    opacity: 0.95;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes celebration {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
