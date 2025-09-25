@@ -75,7 +75,7 @@ const HeroSection = () => {
               iconName="LogIn"
               iconPosition="right"
               iconSize={20}
-              className="w-full sm:w-auto px-8 py-4 text-lg font-semibold"
+              className="w-full sm:w-auto px-8 py-4 text-lg font-semibold text-white"
             >
               Login to Continue
             </Button>

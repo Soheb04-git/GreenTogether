@@ -234,3 +234,151 @@ export default function LanguageSwitcher() {
     </div>
   );
 }
+
+// // src/components/LanguageSwitcher.jsx
+// import React, { useState, useRef, useEffect } from "react";
+
+// const LANGUAGES = [
+//   { code: "en", name: "English" },
+//   { code: "hi", name: "Hindi" },
+//   { code: "bn", name: "Bengali" },
+//   { code: "gu", name: "Gujarati" },
+//   { code: "ta", name: "Tamil" },
+//   { code: "te", name: "Telugu" },
+//   { code: "ml", name: "Malayalam" },
+//   { code: "kn", name: "Kannada" },
+//   { code: "mr", name: "Marathi" },
+//   { code: "pa", name: "Punjabi" },
+//   { code: "or", name: "Odia" },
+//   { code: "ur", name: "Urdu" },
+//   { code: "as", name: "Assamese" },
+//   { code: "ne", name: "Nepali" },
+//   { code: "si", name: "Sinhala" },
+// ];
+
+// export default function LanguageSwitcher() {
+//   const [selectedLang, setSelectedLang] = useState("en");
+//   const [open, setOpen] = useState(false);
+//   const boxRef = useRef(null);
+
+//   const [position, setPosition] = useState({ top: 50, left: 50 });
+//   const [dragging, setDragging] = useState(false);
+//   const dragOffset = useRef({ x: 0, y: 0 });
+
+//   const changeLanguage = (code) => {
+//     setSelectedLang(code);
+//     setOpen(false);
+
+//     const googleSelect = document.querySelector(".goog-te-combo");
+//     if (googleSelect) {
+//       googleSelect.value = code;
+//       googleSelect.dispatchEvent(new Event("change"));
+//     }
+//   };
+
+//   useEffect(() => {
+//     const handleClick = (e) => {
+//       if (boxRef.current && !boxRef.current.contains(e.target)) {
+//         setOpen(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClick);
+//     return () => document.removeEventListener("mousedown", handleClick);
+//   }, []);
+
+//   const onMouseDown = (e) => {
+//     setDragging(true);
+//     dragOffset.current = {
+//       x: e.clientX - position.left,
+//       y: e.clientY - position.top,
+//     };
+//   };
+//   const onMouseMove = (e) => {
+//     if (!dragging) return;
+//     setPosition({
+//       left: e.clientX - dragOffset.current.x,
+//       top: e.clientY - dragOffset.current.y,
+//     });
+//   };
+//   const onMouseUp = () => setDragging(false);
+
+//   const onTouchStart = (e) => {
+//     setDragging(true);
+//     const touch = e.touches[0];
+//     dragOffset.current = {
+//       x: touch.clientX - position.left,
+//       y: touch.clientY - position.top,
+//     };
+//   };
+//   const onTouchMove = (e) => {
+//     if (!dragging) return;
+//     e.preventDefault();
+//     const touch = e.touches[0];
+//     setPosition({
+//       left: touch.clientX - dragOffset.current.x,
+//       top: touch.clientY - dragOffset.current.y,
+//     });
+//   };
+//   const onTouchEnd = () => setDragging(false);
+
+//   useEffect(() => {
+//     window.addEventListener("mousemove", onMouseMove);
+//     window.addEventListener("mouseup", onMouseUp);
+//     window.addEventListener("touchmove", onTouchMove, { passive: false });
+//     window.addEventListener("touchend", onTouchEnd);
+//     return () => {
+//       window.removeEventListener("mousemove", onMouseMove);
+//       window.removeEventListener("mouseup", onMouseUp);
+//       window.removeEventListener("touchmove", onTouchMove);
+//       window.removeEventListener("touchend", onTouchEnd);
+//     };
+//   });
+
+//   return (
+//     <div
+//       ref={boxRef}
+//       className="translator-box fixed z-50 w-36 sm:w-44 cursor-move select-none"
+//       style={{ top: position.top, left: position.left }}
+//       onMouseDown={onMouseDown}
+//       onTouchStart={onTouchStart}
+//     >
+//       {/* Header */}
+//       <div className="flex items-center justify-between bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl shadow-xl p-2 sm:p-2.5 transform transition-transform duration-300 hover:scale-105 cursor-grab">
+//         🌐
+//         <span className="translator-label ml-1 sm:ml-2 font-semibold tracking-wide text-sm">
+//           Lang:
+//         </span>
+//         <button
+//           onClick={(e) => {
+//             e.stopPropagation();
+//             setOpen(!open);
+//           }}
+//           className="translator-btn flex items-center justify-between ml-auto bg-white text-gray-800 font-medium px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg shadow-sm hover:bg-gray-100 transition-all duration-200 hover:scale-105 text-sm"
+//         >
+//           {LANGUAGES.find((l) => l.code === selectedLang)?.name}
+//           <span className="ml-1 text-xs">{open ? "▲" : "▼"}</span>
+//         </button>
+//       </div>
+
+//       {/* Dropdown */}
+//       {open && (
+//         <div className="translator-menu absolute left-0 right-0 bg-white border rounded-xl shadow-xl mt-2 z-50 max-h-56 overflow-y-auto text-sm">
+//           {LANGUAGES.map((lang) => (
+//             <button
+//               key={lang.code}
+//               onClick={() => changeLanguage(lang.code)}
+//               className={`translator-item w-full text-left px-3 py-1 mb-0.5 hover:bg-green-100 hover:scale-105 transition-all duration-200 ${
+//                 selectedLang === lang.code ? "bg-green-200 font-semibold" : ""
+//               }`}
+//             >
+//               {lang.name}
+//             </button>
+//           ))}
+//         </div>
+//       )}
+
+//       {/* Hidden Google widget */}
+//       <div id="google_translate_element" style={{ display: "none" }} />
+//     </div>
+//   );
+// }
