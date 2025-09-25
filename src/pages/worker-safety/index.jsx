@@ -7,21 +7,21 @@ const VIDEOS = [
   {
     id: "v1",
     title: "Safe Lifting & Handling",
-    youtube: "https://www.youtube.com/embed/5MgBikgcWnY",
+    youtube: "https://www.youtube.com/embed/cqJ-ZM4UZNk?si=TkbmyWmMjOrJvzPy",
     summary:
       "Always use gloves, bend at the knees, avoid twisting while lifting. Work in pairs for heavy bags.",
   },
   {
     id: "v2",
     title: "Personal Protective Equipment (PPE)",
-    youtube: "https://www.youtube.com/embed/3fumBcKC6RE",
+    youtube: "https://www.youtube.com/embed/pfFkheIDkFw?si=xhIVwpmxM76qIUv0",
     summary:
       "Wear gloves, reflective vest, and closed shoes. Replace damaged PPE immediately.",
   },
   {
     id: "v3",
     title: "Road Safety while Collecting",
-    youtube: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    youtube: "https://www.youtube.com/embed/hvwRP8G378c?si=wacDtwFAGlKO-Hl5",
     summary:
       "Stay on sidewalks when possible, use signals when moving equipment, keep vehicle lights on in low visibility.",
   },
