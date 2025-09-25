@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Icon from '../../../components/AppIcon';
 
@@ -18,11 +20,11 @@ const SkillTreeNode = ({ node, onNodeClick, isConnected = false }) => {
   const getNodeSize = () => {
     switch (node?.type) {
       case 'milestone':
-        return 'w-16 h-16';
+        return 'w-12 sm:w-16 h-12 sm:h-16';
       case 'bonus':
-        return 'w-12 h-12';
+        return 'w-10 sm:w-12 h-10 sm:h-12';
       default:
-        return 'w-14 h-14';
+        return 'w-12 sm:w-14 h-12 sm:h-14';
     }
   };
 
@@ -30,8 +32,9 @@ const SkillTreeNode = ({ node, onNodeClick, isConnected = false }) => {
     <div className="relative flex flex-col items-center">
       {/* Connection Line */}
       {isConnected && (
-        <div className="absolute -top-8 w-0.5 h-8 bg-border"></div>
+        <div className="absolute -top-6 sm:-top-8 w-0.5 h-6 sm:h-8 bg-border"></div>
       )}
+
       {/* Node */}
       <div
         className={`${getNodeSize()} rounded-full border-2 flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 ${getStatusColor()}`}
@@ -39,26 +42,29 @@ const SkillTreeNode = ({ node, onNodeClick, isConnected = false }) => {
       >
         <Icon 
           name={node?.icon} 
-          size={node?.type === 'milestone' ? 24 : 20} 
+          size={node?.type === 'milestone' ? 20 : 16} 
+          className="sm:text-base"
         />
-        
+
         {node?.status === 'locked' && (
-          <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-muted-foreground rounded-full flex items-center justify-center">
-            <Icon name="Lock" size={12} color="white" />
+          <div className="absolute -bottom-1 -right-1 w-4 sm:w-5 h-4 sm:h-5 bg-muted-foreground rounded-full flex items-center justify-center">
+            <Icon name="Lock" size={10} sm={12} color="white" />
           </div>
         )}
       </div>
+
       {/* Node Label */}
-      <div className="mt-2 text-center max-w-20">
-        <p className="text-xs font-medium text-foreground truncate">
+      <div className="mt-1 sm:mt-2 text-center max-w-[60px] sm:max-w-20">
+        <p className="text-xs sm:text-sm font-medium text-foreground truncate">
           {node?.title}
         </p>
         {node?.points && (
-          <p className="text-xs text-accent font-medium">
+          <p className="text-xs sm:text-sm text-accent font-medium">
             +{node?.points}
           </p>
         )}
       </div>
+
       {/* Progress Indicator */}
       {node?.progress && node?.progress > 0 && node?.status !== 'completed' && (
         <div className="absolute inset-0 rounded-full">

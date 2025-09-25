@@ -1,3 +1,6 @@
+
+
+
 // src/pages/worker-benefits/index.jsx
 import React, { useEffect, useMemo, useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
@@ -98,7 +101,7 @@ export default function WorkerBenefits() {
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
               <div className="h-2 bg-green-500 rounded-full transition-all" style={{ width: `${item.progress}%` }} />
             </div>
-            <div className="flex justify-between items-center mt-1 text-xs text-muted-foreground">
+            <div className="flex justify-between items-center mt-1 text-xs sm:text-sm text-muted-foreground">
               <span>{item.progress}% completed</span>
               <button
                 className={`px-3 py-1 rounded-md text-sm font-medium ${
@@ -114,8 +117,8 @@ export default function WorkerBenefits() {
         );
       case "Allowances":
         return (
-          <div className="mt-3 flex items-center justify-between">
-            <div className="text-xs text-muted-foreground">Remaining: {couponBalance}</div>
+          <div className="mt-3 flex flex-col sm:flex-row sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
+            <div className="text-xs sm:text-sm text-muted-foreground">Remaining: {couponBalance}</div>
             <button
               className={`px-3 py-1 rounded-md text-sm font-medium ${couponBalance > 0 ? "bg-primary text-white" : "bg-gray-200 text-gray-500"}`}
               onClick={handleRedeemCoupon}
@@ -129,7 +132,7 @@ export default function WorkerBenefits() {
         return (
           <div className="mt-3">
             <button
-              className="px-3 py-1 rounded-md text-sm font-medium bg-amber-500 text-white"
+              className="px-3 py-1 rounded-md text-sm font-medium bg-amber-500 text-white w-full sm:w-auto"
               onClick={handleRequestSafetyKit}
             >
               Request Replacement
@@ -140,7 +143,7 @@ export default function WorkerBenefits() {
         return (
           <div className="mt-3">
             <button
-              className="px-3 py-1 rounded-md text-sm font-medium bg-indigo-600 text-white"
+              className="px-3 py-1 rounded-md text-sm font-medium bg-indigo-600 text-white w-full sm:w-auto"
               onClick={() => handleDownloadCertificate(item)}
             >
               View / Download
@@ -160,22 +163,22 @@ export default function WorkerBenefits() {
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-6 p-4 sm:p-6">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-600 to-green-400 text-white p-6 rounded-lg shadow">
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <Icon name="Gift" size={22} /> Incentives & Benefits
+        <div className="bg-gradient-to-r from-green-600 to-green-400 text-white p-4 sm:p-6 rounded-lg shadow">
+          <h1 className="text-xl sm:text-2xl font-bold flex items-center gap-2">
+            <Icon name="Gift" size={20} /> Incentives & Benefits
           </h1>
-          <p className="text-sm mt-1">Track your earnings, milestones, and perks</p>
+          <p className="text-xs sm:text-sm mt-1">Track your earnings, milestones, and perks</p>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-3 overflow-x-auto">
+        <div className="flex flex-wrap gap-2 sm:gap-3 overflow-x-auto">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium ${
+              className={`px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-sm sm:text-base font-medium whitespace-nowrap ${
                 active === cat ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
               }`}
             >
@@ -184,74 +187,69 @@ export default function WorkerBenefits() {
           ))}
         </div>
 
-        {feedback && <div className="p-3 bg-green-50 border border-green-200 text-green-800 rounded-md shadow">{feedback}</div>}
+        {feedback && <div className="p-3 bg-green-50 border border-green-200 text-green-800 rounded-md shadow text-sm sm:text-base">{feedback}</div>}
 
         {/* Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filtered.map((item) => (
             <div
               key={item.id}
-              className="p-4 border rounded-lg bg-white shadow hover:shadow-md transition hover:scale-[1.01]"
+              className="p-4 sm:p-5 border rounded-lg bg-white shadow hover:shadow-md transition hover:scale-[1.01]"
             >
-              <h2 className="text-lg font-semibold flex items-center gap-2">
-                {item.category === "Bonuses" && <Icon name="DollarSign" size={18} className="text-green-600" />}
-                {item.category === "Allowances" && <Icon name="Utensils" size={18} className="text-orange-500" />}
-                {item.category === "Health & Safety" && <Icon name="Shield" size={18} className="text-amber-600" />}
-                {item.category === "Training Certificates" && <Icon name="Award" size={18} className="text-indigo-600" />}
+              <h2 className="text-base sm:text-lg font-semibold flex items-center gap-2">
+                {item.category === "Bonuses" && <Icon name="DollarSign" size={16} className="text-green-600" />}
+                {item.category === "Allowances" && <Icon name="Utensils" size={16} className="text-orange-500" />}
+                {item.category === "Health & Safety" && <Icon name="Shield" size={16} className="text-amber-600" />}
+                {item.category === "Training Certificates" && <Icon name="Award" size={16} className="text-indigo-600" />}
                 {item.title}
               </h2>
-              <p className="text-sm text-gray-600 mt-1">{item.description}</p>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">{item.description}</p>
               {renderCardControls(item)}
             </div>
           ))}
         </div>
 
         {/* Notifications Section */}
-      <div className="p-4 border rounded-lg bg-white shadow">
-        <div className="flex justify-between items-center mb-3">
-          <h3 className="font-semibold flex items-center gap-2">
-            <Icon name="Bell" size={18} className="text-green-600" /> Notifications & Emails
-          </h3>
-          <div className="flex gap-2">
-            {["All", "Notification", "Email"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setNotifTab(tab)}
-                className={`px-3 py-1 rounded-md text-sm ${
-                  notifTab === tab ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+        <div className="p-4 sm:p-5 border rounded-lg bg-white shadow">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2 sm:gap-0">
+            <h3 className="font-semibold flex items-center gap-2 text-sm sm:text-base">
+              <Icon name="Bell" size={18} className="text-green-600" /> Notifications & Emails
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {["All", "Notification", "Email"].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setNotifTab(tab)}
+                  className={`px-3 py-1 rounded-md text-sm ${notifTab === tab ? "bg-green-600 text-white" : "bg-gray-100 text-gray-700"}`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {filteredNotifs.length === 0 ? (
+            <div className="text-sm text-muted-foreground">No notifications yet.</div>
+          ) : (
+            <ul className="space-y-3 text-sm max-h-56 sm:max-h-64 overflow-y-auto pr-2">
+              {filteredNotifs.map((n) => (
+                <li key={n.id} className="p-2 border-l-4 bg-gray-50 rounded-md shadow-sm flex flex-col">
+                  <div className="flex justify-between items-start sm:items-center gap-2">
+                    <span className="break-words">{n.message}</span>
+                    <span
+                      className={`px-2 py-0.5 text-xs rounded-full whitespace-nowrap ${
+                        n.type === "Email" ? "bg-blue-100 text-blue-700" : "bg-yellow-100 text-yellow-700"
+                      }`}
+                    >
+                      {n.type}
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-400 mt-1">{n.time}</div>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-
-        {filteredNotifs.length === 0 ? (
-          <div className="text-sm text-muted-foreground">No notifications yet.</div>
-        ) : (
-          <ul className="space-y-3 text-sm max-h-40 overflow-y-auto pr-2">
-            {filteredNotifs.map((n) => (
-              <li key={n.id} className="p-2 border-l-4 bg-gray-50 rounded-md shadow-sm flex flex-col">
-                <div className="flex justify-between">
-                  <span>{n.message}</span>
-                  <span
-                    className={`px-2 py-0.5 text-xs rounded-full ${
-                      n.type === "Email"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-yellow-100 text-yellow-700"
-                    }`}
-                  >
-                    {n.type}
-                  </span>
-                </div>
-                <div className="text-xs text-gray-400 mt-1">{n.time}</div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
       </div>
     </DashboardLayout>
   );

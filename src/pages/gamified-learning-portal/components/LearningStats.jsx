@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Icon from '../../../components/AppIcon';
 
@@ -38,35 +40,38 @@ const LearningStats = ({ stats }) => {
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       {statItems?.map((item, index) => (
-        <div key={index} className="bg-card border border-border rounded-lg p-4 hover:shadow-elevation transition-all duration-300">
+        <div 
+          key={index} 
+          className="bg-card border border-border rounded-lg p-4 sm:p-5 md:p-6 hover:shadow-elevation transition-all duration-300"
+        >
           <div className="flex items-center space-x-3">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${item?.bgColor}`}>
+            <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center ${item?.bgColor}`}>
               <Icon name={item?.icon} size={20} className={item?.color} />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="flex items-baseline space-x-1">
-                <span className={`text-xl font-bold ${item?.color}`}>
+              <div className="flex flex-wrap items-baseline space-x-1">
+                <span className={`text-xl sm:text-2xl md:text-xl font-bold ${item?.color}`}>
                   {item?.value}
                 </span>
                 {item?.total && (
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm sm:text-xs md:text-sm text-muted-foreground">
                     /{item?.total}
                   </span>
                 )}
                 {item?.suffix && (
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm sm:text-xs md:text-sm text-muted-foreground">
                     {item?.suffix}
                   </span>
                 )}
               </div>
-              <p className="text-xs text-muted-foreground truncate">
+              <p className="text-xs sm:text-sm md:text-xs text-muted-foreground truncate">
                 {item?.label}
               </p>
             </div>
           </div>
-          
+
           {item?.total && (
             <div className="mt-3">
               <div className="w-full bg-muted rounded-full h-1.5">
