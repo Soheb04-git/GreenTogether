@@ -241,7 +241,7 @@ import WorkerSafety from "./pages/worker-safety";
 import RequireAuth from "./components/RequireAuth.jsx";
 
 const Routes = () => (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.VERCEL ? "/" : "/GreenTogether/"}>
     <ErrorBoundary>
       <ScrollToTop />
       <RouterRoutes>
