@@ -6,7 +6,7 @@ import path from "path";
 
 export default defineConfig({
   build: {
-    outDir: "build",
+    outDir: "dist",
     chunkSizeWarningLimit: 2000,
   },
   plugins: [tsconfigPaths(), react(), tagger()],
