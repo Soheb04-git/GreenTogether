@@ -2,7 +2,10 @@
 
 ![GreenTogether Logo](./src/assets/images/global/logo1.png)
 
-Welcome to *GreenTogether, the interactive web application designed to make waste management **smart, efficient, and user-friendly* for citizens, workers, and administrators. This project combines cutting-edge frontend technologies, responsive design, real-time tracking, and engaging UI/UX for a seamless experience.  
+Welcome to *GreenTogether, the interactive web application designed to make waste management **smart, efficient, and user-friendly* for citizens, workers, and administrators. This project combines cutting-edge frontend technologies, responsive design, real-time tracking, and engaging UI/UX for a seamless experience. <br>
+  
+A prototype web platform built for **Smart India Hackathon 2025** addressing the problem statement **“Real Life Solutions for Waste Management” (SIH25060)**.  
+This demo focuses on citizen & worker workflows, city partnerships, reporting, incentives and monitoring to reduce and manage municipal waste.
 
 ---
 
@@ -40,13 +43,24 @@ Welcome to *GreenTogether, the interactive web application designed to make wast
 
 *Watch GreenTogether in action:*
 
-| Landing Page | Worker Dashboard | Admin Dashboard |
-|-------------|----------------|----------------|
-| ![Citizen GIF](./src/assets/images/auth/citizen.gif) | ![Worker GIF](./src/assets/images/auth/worker.gif) | ![Admin GIF](./src/assets/images/auth/admin.gif) |
+| Landing Page    | Citizen Dahboard | Worker Dashboard | Admin Dashboard |
+| --------|-------------|----------------|----------------|
+| ![Landing Page GIF](./src/assets/images/auth/landing.gif)        | ![Citizen GIF](./src/assets/images/auth/citizen.gif) | ![Worker GIF](./src/assets/images/auth/worker.gif) | ![Admin GIF](./src/assets/images/auth/admin.gif) |
 
-> GIFs demonstrate interactivity, sidebar collapses, and real-time updates.
+> GIFs demonstrate interactivity, movable language translator, and real-time updates.
 
-*Or try the live demo:* [🌐 GreenTogether Live](https://Soheb04-git.github.io/GreenTogether)
+*Or try the live demo:* [🌐 GreenTogether Live](https://green-together-32sx.vercel.app/)<br>
+
+---
+
+## 🔐 Demo Credentials (Quick Login) 
+<br>
+
+| Role      | Email                    | Password     |
+|-----------| ------------------------ |--------------|
+| Citizen   | `citizen@wasteauth.com`  | `citizen123` |
+| Worker    | `worker@wasteauth.com`   | `worker123`  |
+| Admin     | `admin@wasteauth.com`    | `admin123`   |
 
 ---
 
@@ -92,7 +106,7 @@ cd GreenTogether
 npm install
 # or
 yarn install
-eenTogether
+GeenTogether
 ```
 
 
@@ -138,7 +152,7 @@ export default ProjectRoutes;
 ```
 
 ---
-␣␣
+<br>
 
 📱 Responsive & Interactive Design
 
@@ -155,7 +169,7 @@ Adaptive typography and fluid layouts for all devices.
 
 
 ---
-␣␣
+<br>
 
 🔧 Configuration
 
@@ -175,29 +189,27 @@ Optional: Dark mode toggle.
 
 
 ---
-␣␣
+<br>
 
-🌐 Deployment
-
+🌐 Deployment <br>
+```bash
 npm run build
+```
 # Deploy to Vercel, Netlify, or GitHub Pages
-␣␣
-
-
+<br>
 💡 Pro Tip: Connect GitHub Actions or Vercel for auto-deploy on every commit.
 
 
 ---
-␣␣
+<br>
 
 ## 🏅 Badges
 
 
-![React](https://img.shields.io/badge/React-18-blue?logo=react)
-![Vite](https://img.shields.io/badge/Vite-4.0-brightgreen?logo=vite)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.2-teal?logo=tailwindcss)
-![License](https://img.shields.io/badge/License-MIT-yellow)
-![Node.js](https://img.shields.io/badge/Node.js-18-green?logo=node.js)
+![React](https://img.shields.io/badge/React-18-blue?logo=react) <br>
+![Vite](https://img.shields.io/badge/Vite-4.0-brightgreen?logo=vite)<br>
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.2-teal?logo=tailwindcss)<br>
+![Node.js](https://img.shields.io/badge/Node.js-18-green?logo=node.js)<br>
 ![NPM](https://img.shields.io/badge/npm-9-red?logo=npm)
 
    
@@ -205,9 +217,11 @@ npm run build
 
 ---
 
-␣␣
+<br>
 
-🙏 Acknowledgments
+🙏 Acknowledgments <br>
+<br>
+SIH 2025 Inspiration – Real-world waste management problem solving.
 
 React & Vite – App foundation.
 
@@ -217,13 +231,13 @@ Framer Motion – Interactive animations.
 
 Recharts & D3.js – Data visualizations.
 
-SIH 2025 Inspiration – Real-world waste management problem solving.
+
 
 
 
 ---
 
-␣␣
+<br>
 
-Built with ❤ by Soheb & team.
+Built with ❤️ for Smart India Hackathon 2025 by Team CODE 4 CAUSE25. .
 Designed to make waste management interactive, efficient, and engaging for citizens, workers, and admins.
