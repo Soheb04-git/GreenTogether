@@ -94,3 +94,4 @@ const TrainingSection = () => {
 };
 
 export default TrainingSection;
+

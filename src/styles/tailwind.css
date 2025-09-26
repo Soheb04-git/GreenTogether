@@ -7,8 +7,9 @@
 @layer base {
   :root {
     /* Core System Colors */
-    --color-background: #FAFAFA; /* gray-50 */
+    --color-background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); /* new gradient */
     --color-foreground: #1B1B1B; /* gray-900 */
+
     --color-border: #E0E0E0; /* gray-300 */
     --color-input: #FFFFFF; /* white */
     --color-ring: #2E7D32; /* green-800 */
@@ -67,6 +68,7 @@
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {

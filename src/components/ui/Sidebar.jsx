@@ -1,16 +1,16 @@
 
-// src/components/ui/Sidebar.jsx
 
+// src/components/ui/Sidebar.jsx
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Icon from '../AppIcon';
-import Button from './Button';
 import { getRole } from '../../utils/auth';
 
-const Sidebar = ({ isCollapsed = false, onToggleCollapse, onQuickAction = () => {}, className = '' }) => {
+const Sidebar = ({ isCollapsed = false, onToggleCollapse, onQuickAction = () => {} }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const role = getRole();
+  const showExpanded = !isCollapsed;
 
   const navigationItems = [
     {
@@ -18,63 +18,21 @@ const Sidebar = ({ isCollapsed = false, onToggleCollapse, onQuickAction = () => 
       items: [
         ...(role === 'admin'
           ? [
-              {
-                path: '/impact-visualization-dashboard',
-                label: 'Impact Dashboard',
-                icon: 'TrendingUp',
-                description: 'Progress visualization',
-              },
-              {
-                path: '/admin-portal/monitoring-hub',
-                label: 'Monitoring Hub',
-                icon: 'Activity',
-                description: 'Real-time tracking',
-              },
+              { path: '/impact-visualization-dashboard', label: 'Impact Dashboard', icon: 'TrendingUp', description: 'Progress visualization' },
+              { path: '/admin-portal/monitoring-hub', label: 'Monitoring Hub', icon: 'Activity', description: 'Real-time tracking' },
             ]
           : []),
-
         ...(role === 'citizen'
           ? [
-              {
-                path: '/gamified-learning-portal',
-                label: 'Learning Portal',
-                icon: 'GraduationCap',
-                description: 'Training & courses',
-              },
+              { path: '/gamified-learning-portal', label: 'Learning Portal', icon: 'GraduationCap', description: 'Training & courses' },
+              { path: '/community-action-center', label: 'Champion', icon: 'Users', description: 'Local initiatives' },
             ]
           : []),
-
         ...(role === 'worker'
           ? [
-              {
-                path: '/worker-portal',
-                label: 'Worker Dashboard',
-                icon: 'Truck',
-                description: 'Assigned routes & stats',
-              },
-              {
-                path: '/worker-performance',
-                label: 'Performance',
-                icon: 'BarChart',
-                description: 'Earnings & efficiency',
-              },
-              {
-                path: '/worker-benefits',
-                label: 'Incentives & Benefits',
-                icon: 'Gift',
-                description: 'Earnings & perks',
-              },
-            ]
-          : []),
-
-        ...(role === 'volunteer'
-          ? [
-              {
-                path: '/community-action-center',
-                label: 'Community Center',
-                icon: 'Users',
-                description: 'Local initiatives',
-              },
+              { path: '/worker-portal', label: 'Worker Dashboard', icon: 'Truck', description: 'Assigned routes & stats' },
+              { path: '/worker-performance', label: 'Performance', icon: 'BarChart', description: 'Earnings & efficiency' },
+              { path: '/worker-benefits', label: 'Incentives & Benefits', icon: 'Gift', description: 'Earnings & perks' },
             ]
           : []),
       ],
@@ -83,204 +41,138 @@ const Sidebar = ({ isCollapsed = false, onToggleCollapse, onQuickAction = () => 
       section: 'Engagement',
       items: [
         ...(role === 'citizen'
-          ? [
-              {
-                path: '/rewards-marketplace',
-                label: 'Rewards',
-                icon: 'Gift',
-                description: 'Earn & redeem points',
-              },
-            ]
+          ? [{ path: '/rewards-marketplace', label: 'Rewards', icon: 'Gift', description: 'Earn & redeem points' }]
           : []),
       ],
     },
   ];
 
-  // Quick Actions (role-specific for worker)
-const quickActions = role === 'worker'
-  ? [
-      { icon: 'Eye', label: 'See Issues', action: 'see-issues' },
-      // { icon: 'MapPin', label: 'Find Centers', action: 'locate' },
-      // { icon: 'MessageSquare', label: 'Community Chat', action: 'chat' },
-    ]
-  : [
-      { icon: 'Camera', label: 'Report Issue', action: 'report' },
-      { icon: 'MapPin', label: 'Find Centers', action: 'locate' },
-      { icon: 'MessageSquare', label: 'Community Chat', action: 'chat' },
-    ];
+  const quickActions =
+    role === 'worker'
+      ? [{ icon: 'Eye', label: 'See Issues', action: 'see-issues' }]
+      : [
+          { icon: 'Camera', label: 'Report Issue', action: 'report' },
+          { icon: 'MapPin', label: 'Find Centers', action: 'locate' },
+          { icon: 'MessageSquare', label: 'Community Chat', action: 'chat' },
+        ];
 
-
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
-
-  const handleQuickActionClick = (action) => {
-    if (onQuickAction) {
-      onQuickAction(action);
-    } else {
-      console.log(`Quick action clicked: ${action}`);
-    }
-  };
-
+  const handleNavigation = (path) => navigate(path);
   const isActivePath = (path) => location?.pathname === path;
-
-  const showExpanded = !isCollapsed;
 
   return (
     <aside
-      className={`z-40 bg-card border-r border-border shadow-elevation transition-all duration-300 ${
+      className={`flex flex-col h-[calc(100vh-1rem)] mt-4 bg-white/90 backdrop-blur-lg border-r border-gray-200 shadow-lg rounded-xl transition-all duration-300 ${
         showExpanded ? 'w-64' : 'w-16'
-      } ${className}`}
+      }`}
     >
-      <div className="flex flex-col h-full">
-        {/* Sidebar Header */}
-        <div className="flex items-center justify-between p-4 border-b border-border">
-          {showExpanded && (
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-success rounded-full animate-pulse-gentle"></div>
-              <span className="text-sm font-medium text-muted-foreground">
-                Active Session
-              </span>
-            </div>
-          )}
+      {/* Top: Active session + collapse */}
+      <div className="flex items-center justify-between p-4 border-b border-gray-200">
+        {showExpanded && (
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-success rounded-full animate-pulse-gentle"></div>
+            <span className="text-sm font-medium text-gray-600">Active Session</span>
+          </div>
+        )}
+        <button
+          onClick={onToggleCollapse}
+          className="p-1 rounded-full hover:bg-gray-100 transition"
+        >
+          <Icon name={isCollapsed ? 'ChevronRight' : 'ChevronLeft'} size={16} />
+        </button>
+      </div>
 
-          {onToggleCollapse && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onToggleCollapse}
-              iconName={isCollapsed ? 'ChevronRight' : 'ChevronLeft'}
-              iconSize={16}
-              className={showExpanded ? '' : 'mx-auto'}
-            />
-          )}
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto py-4">
-          {navigationItems?.map((section) => (
-            <div key={section?.section} className="mb-6">
-              {showExpanded && (
-                <h3 className="px-4 mb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  {section?.section}
-                </h3>
-              )}
-
-              <div className="space-y-1 px-2">
-                {section?.items?.map((item) => (
-                  <button
-                    key={item?.path}
-                    onClick={() => handleNavigation(item?.path)}
-                    className={`w-full flex items-center space-x-3 px-3 py-2.5 rounded-lg text-left transition-all duration-200 group ${
-                      isActivePath(item?.path)
-                        ? 'bg-primary text-primary-foreground shadow-sm'
-                        : 'text-foreground hover:bg-muted hover:text-primary'
-                    }`}
-                    title={!showExpanded ? item?.label : ''}
-                  >
-                    <Icon
-                      name={item?.icon}
-                      size={18}
-                      className={`flex-shrink-0 ${
-                        isActivePath(item?.path)
-                          ? 'text-primary-foreground'
-                          : 'text-muted-foreground group-hover:text-primary'
-                      }`}
-                    />
-
-                    {showExpanded && (
-                      <div className="flex-1 min-w-0">
-                        <div className="font-medium text-sm truncate">
-                          {item?.label}
-                        </div>
-                        <div
-                          className={`text-xs truncate ${
-                            isActivePath(item?.path)
-                              ? 'text-primary-foreground/80'
-                              : 'text-muted-foreground'
-                          }`}
-                        >
-                          {item?.description}
-                        </div>
-                      </div>
-                    )}
-
-                    {isActivePath(item?.path) && (
-                      <div className="w-1 h-6 bg-accent rounded-full"></div>
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
-          ))}
-
-          {/* Quick Actions */}
-          <div className="border-t border-border p-4">
+      {/* Navigation */}
+      <nav className="flex-1 overflow-y-auto py-4 space-y-6 relative">
+        {navigationItems.map((section) => (
+          <div key={section.section}>
             {showExpanded && (
-              <h3 className="mb-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                Quick Actions
+              <h3 className="px-4 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                {section.section}
               </h3>
             )}
+            <div className="flex flex-col space-y-1 px-2 relative">
+              {section.items.map((item) => {
+                const active = isActivePath(item.path);
+                return (
+                  <div key={item.path} className="relative group">
+                    {/* Glow Background */}
+                    <span
+                      className={`absolute inset-0 rounded-lg transition-all duration-500 ${
+                        active
+                          ? 'bg-gradient-to-r from-green-200 via-green-100 to-green-200 animate-glow'
+                          : 'opacity-0 group-hover:opacity-100 group-hover:bg-gradient-to-r group-hover:from-green-100 group-hover:via-green-50 group-hover:to-green-100'
+                      }`}
+                    ></span>
 
-            <div className="space-y-2">
-              {quickActions?.map((action) => (
-                <Button
-                  key={action?.action}
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => onQuickAction(action?.action)}
-                  iconName={action?.icon}
-                  iconPosition="left"
-                  iconSize={16}
-                  className={`w-full justify-start ${!showExpanded ? 'px-2' : ''}`}
-                  title={!showExpanded ? action?.label : ''}
-                >
-                  {showExpanded && action?.label}
-                </Button>
-              ))}
+                    <button
+                      onClick={() => handleNavigation(item.path)}
+                      className="relative flex items-center gap-3 px-3 py-2.5 rounded-lg w-full transition-transform duration-300 hover:scale-[1.03] z-10"
+                      title={!showExpanded ? item.label : ''}
+                    >
+                      {/* Vertical active indicator */}
+                      <span
+                        className={`absolute left-0 top-0 h-full w-1 rounded-r-lg transition-all duration-300 ${
+                          active ? 'bg-gradient-to-b from-green-500 to-green-400' : 'opacity-0'
+                        }`}
+                      ></span>
+
+                      {/* Icon */}
+                      <Icon
+                        name={item.icon}
+                        size={20}
+                        className={`flex-shrink-0 transition-transform duration-300 ${
+                          active ? 'text-green-600 scale-110 animate-pulse' : 'text-gray-500 group-hover:text-green-500'
+                        }`}
+                      />
+
+                      {/* Title & description */}
+                      {showExpanded && (
+                        <div className="flex-1 min-w-0">
+                          <div className={`font-medium text-sm truncate ${active ? 'text-green-700' : 'text-gray-700'}`}>
+                            {item.label}
+                          </div>
+                          <div className="text-xs truncate text-gray-400">{item.description}</div>
+                        </div>
+                      )}
+                    </button>
+                  </div>
+                );
+              })}
             </div>
           </div>
+        ))}
 
-          {/* Eco Warrior block right after Quick Actions */}
-          <div className="border-t border-border p-4">
-            <div
-              className={`flex items-center ${
-                showExpanded ? 'space-x-3' : 'justify-center'
-              }`}
-            >
-              <div className="relative">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                  <Icon name="Leaf" size={16} color="white" />
-                </div>
-                <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-success border-2 border-card rounded-full"></div>
-              </div>
-
-              {showExpanded && (
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-medium text-foreground">
-                    Eco Warrior
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    Level 3 • 1,250 pts
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {showExpanded && (
-              <div className="mt-3">
-                <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
-                  <span>Progress to Level 4</span>
-                  <span>75%</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-1.5">
-                  <div className="bg-gradient-to-r from-primary to-secondary h-1.5 rounded-full w-3/4 transition-all duration-500"></div>
-                </div>
-              </div>
-            )}
+        {/* Quick Actions */}
+        <div className="border-t border-gray-200 pt-4 px-2">
+          {showExpanded && <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Quick Actions</h3>}
+          <div className="flex flex-col space-y-2">
+            {quickActions.map((action) => (
+              <button
+                key={action.action}
+                onClick={() => onQuickAction(action.action)}
+                className="flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-gradient-to-r hover:from-green-100 hover:via-green-50 hover:to-green-100"
+                title={!showExpanded ? action.label : ''}
+              >
+                <Icon name={action.icon} size={18} className="text-green-500 transition-transform duration-300 group-hover:scale-110" />
+                {showExpanded && <span className="text-gray-700 font-medium">{action.label}</span>}
+              </button>
+            ))}
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
+
+      {/* Glow Animation Keyframes */}
+      <style>{`
+        @keyframes glow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .animate-glow {
+          background-size: 200% 200%;
+          animation: glow 3s ease infinite;
+        }
+      `}</style>
     </aside>
   );
 };

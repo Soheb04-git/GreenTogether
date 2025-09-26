@@ -21,12 +21,12 @@ const CredentialsHelper = () => {
       password: 'worker123',
       description: 'Access worker dashboard and collection routes'
     },
-    {
-      role: 'Green Champion',
-      email: 'champion@wasteauth.com',
-      password: 'champion123',
-      description: 'Access monitoring tools and community programs'
-    },
+    // {
+    //   role: 'Green Champion',
+    //   email: 'champion@wasteauth.com',
+    //   password: 'champion123',
+    //   description: 'Access monitoring tools and community programs'
+    // },
     {
       role: 'ULB Admin',
       email: 'admin@wasteauth.com',
