@@ -5,7 +5,7 @@ import tagger from "@dhiwise/component-tagger";
 import path from "path";
 
 export default defineConfig({
-  base: process.env.VERCEL ? "/" : "/GreenTogether/",
+  base: "/",
   build: {
     outDir: "dist",
     chunkSizeWarningLimit: 2000,
