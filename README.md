@@ -28,7 +28,7 @@ This demo focuses on citizen & worker workflows, city partnerships, reporting, i
 ### 🧩 User Experience
 - Responsive layouts for all devices.
 - Interactive *sidebar* and navigation menus.
-- Role-based views: *Citizen, **Worker, **Admin*.
+- Role-based views: **Citizen**, **Worker**, **Admin**.
 - Photo-based reporting and task tracking.
 
 ### 🛠 Worker-Oriented Features
