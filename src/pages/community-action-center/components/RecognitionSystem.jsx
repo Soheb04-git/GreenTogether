@@ -8,9 +8,9 @@ const RecognitionSystem = () => {
   const [monthlySpotlight] = useState([
     {
       id: 1,
-      name: 'Priya Sharma',
+      name: 'Soheb Ansari',
       title: 'Community Cleanup Champion',
-      avatar: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=200',
+      avatar: 'https://cdn.pixabay.com/photo/2024/10/04/15/22/ai-generated-9096732_1280.jpg',
       location: 'Koramangala, Bangalore',
       achievement: 'Organized 15 successful cleanup drives in the past month, mobilizing 300+ volunteers and collecting 2.5 tons of waste.',
       impact: {
@@ -32,9 +32,9 @@ const RecognitionSystem = () => {
     },
     {
       id: 2,
-      name: 'Rajesh Kumar',
+      name: 'Vivek Gupta',
       title: 'Waste Education Specialist',
-      avatar: 'https://images.pexels.com/photos/6647019/pexels-photo-6647019.jpeg?auto=compress&cs=tinysrgb&w=200',
+      avatar: 'https://cdn.pixabay.com/photo/2023/06/23/11/23/ai-generated-8083323_640.jpg',
       location: 'HSR Layout, Bangalore',
       achievement: 'Conducted 25 waste segregation workshops, training over 500 households in proper waste management techniques.',
       impact: {
@@ -59,8 +59,8 @@ const RecognitionSystem = () => {
   const [topContributors] = useState([
     {
       rank: 1,
-      name: 'Anita Desai',
-      avatar: 'https://images.pexels.com/photos/6647020/pexels-photo-6647020.jpeg?auto=compress&cs=tinysrgb&w=100',
+      name: 'Vinit Mondal',
+      avatar: 'https://media.istockphoto.com/id/1459572328/photo/3d-rendered-happy-boy-avatar-wearing-a-white-shirt-on-the-white-background.jpg?s=1024x1024&w=is&k=20&c=aPSdSKOOUQsDf5YNYAh4C5HvQUeWVMyxm-fdU9B2mjE=',
       points: 3250,
       category: 'Content Creation',
       contributions: 'Created 50+ educational posts',
@@ -69,8 +69,8 @@ const RecognitionSystem = () => {
     },
     {
       rank: 2,
-      name: 'Vikram Singh',
-      avatar: 'https://images.pexels.com/photos/9324336/pexels-photo-9324336.jpeg?auto=compress&cs=tinysrgb&w=100',
+      name: 'Sneha Singh',
+      avatar: 'https://media.istockphoto.com/id/1296058958/vector/happy-young-woman-watching-into-rounded-frame-isolated-on-white-3d-vector-illustration.jpg?s=1024x1024&w=is&k=20&c=31WnTQvI2vliWZq3VCS0rNQzX-grKVrSX1qmGsTI0C8=',
       points: 2890,
       category: 'Technology',
       contributions: 'Beta tested 15 app features',
@@ -89,8 +89,8 @@ const RecognitionSystem = () => {
     },
     {
       rank: 4,
-      name: 'Arjun Reddy',
-      avatar: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=100',
+      name: 'Subham Kumar',
+      avatar: 'https://media.istockphoto.com/id/2211932793/photo/isolated-3d-character-of-a-young-man-with-buttoned-shirt.jpg?s=1024x1024&w=is&k=20&c=HyIIzpn_V3SjhjLBXNBgeAW5_djrEjkRiZLi9lGvTZc=',
       points: 2340,
       category: 'Volunteer Coordination',
       contributions: 'Coordinated 12 events',
@@ -99,7 +99,7 @@ const RecognitionSystem = () => {
     },
     {
       rank: 5,
-      name: 'Kavya Nair',
+      name: 'Nikhil Sah',
       avatar: 'https://images.pexels.com/photos/6647019/pexels-photo-6647019.jpeg?auto=compress&cs=tinysrgb&w=100',
       points: 2120,
       category: 'Education',
@@ -114,7 +114,7 @@ const RecognitionSystem = () => {
       id: 1,
       title: 'Zero Waste Neighborhood',
       description: 'Koramangala 5th Block achieved 95% waste segregation compliance',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://media.istockphoto.com/id/2156202669/photo/world-environment-day-business-corporate-and-community-cooperation-for-environment.jpg?s=1024x1024&w=is&k=20&c=cFTA-jFIhjfDbAjIeMOqDG8vqweVPshv8yLyLCCJFuU=',
       date: '2025-01-15',
       participants: 450,
       impact: '2.8 tons waste properly segregated',
