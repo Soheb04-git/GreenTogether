@@ -226,8 +226,8 @@ const RegistrationForm = ({ onSubmit, loading, error, success }) => {
 
   const roleOptions = [
     { value: 'citizen', label: 'Citizen' },
-    { value: 'waste-worker', label: 'Waste Worker' },
-    { value: 'ulb-admin', label: 'ULB Admin' }
+    { value: 'waste-worker', label: 'Waste Worker' }
+    //{ value: 'ulb-admin', label: 'ULB Admin' }
   ];
 
   const validateForm = () => {

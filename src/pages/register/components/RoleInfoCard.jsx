@@ -16,19 +16,19 @@ const RoleInfoCard = () => {
       icon: 'Truck',
       description: 'Manage collection routes, update status, and coordinate with teams',
       features: ['Route management', 'Status updates', 'Team coordination']
-    },
-    {
-      role: 'Green Champion',
-      icon: 'Leaf',
-      description: 'Monitor environmental impact and promote sustainable practices',
-      features: ['Impact monitoring', 'Sustainability reports', 'Community engagement']
-    },
-    {
-      role: 'ULB Admin',
-      icon: 'Settings',
-      description: 'Oversee operations, manage users, and access comprehensive analytics',
-      features: ['System administration', 'User management', 'Analytics dashboard']
     }
+    // {
+    //   role: 'Green Champion',
+    //   icon: 'Leaf',
+    //   description: 'Monitor environmental impact and promote sustainable practices',
+    //   features: ['Impact monitoring', 'Sustainability reports', 'Community engagement']
+    // },
+    // {
+    //   role: 'ULB Admin',
+    //   icon: 'Settings',
+    //   description: 'Oversee operations, manage users, and access comprehensive analytics',
+    //   features: ['System administration', 'User management', 'Analytics dashboard']
+    // }
   ];
 
   return (
