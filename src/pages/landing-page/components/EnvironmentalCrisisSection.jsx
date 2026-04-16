@@ -98,53 +98,7 @@ const EnvironmentalCrisisSection = () => {
           </p>
         </div>
 
-        {/* Interactive India Map */}
-        <div className="relative max-w-3xl mx-auto mb-16">
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-elevation border border-orange-100">
-            <h3 className="text-xl font-semibold text-center mb-8 text-foreground">
-              Tap on cities to see waste statistics
-            </h3>
-            
-            {/* Simplified India Map */}
-            <div className="relative w-full h-96 bg-gradient-to-br from-green-100/70 to-green-200/70 rounded-xl overflow-hidden">
-              {/* India outline representation */}
-              <div className="absolute inset-4 bg-green-50/70 rounded-lg border-2 border-green-300"></div>
-              
-              {/* City markers */}
-              {cityData?.map((city) => (
-                <button
-                  key={city?.id}
-                  onClick={() => handleCityClick(city)}
-                  className={`absolute w-4 h-4 ${city?.color} rounded-full border-2 border-white shadow-lg transform -translate-x-1/2 -translate-y-1/2 hover:scale-125 transition-all duration-200 z-10`}
-                  style={{ top: city?.position?.top, left: city?.position?.left }}
-                  aria-label={`View ${city?.name} waste statistics`}
-                >
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900/90 text-white text-xs px-2 py-1 rounded opacity-0 hover:opacity-100 transition-opacity whitespace-nowrap">
-                    {city?.name}
-                  </div>
-                </button>
-              ))}
-              
-              {/* Pollution indicators */}
-              <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-lg p-3">
-                <div className="text-xs font-medium text-gray-700 mb-2">Pollution Level</div>
-                <div className="space-y-1">
-                  <div className="flex items-center">
-                    <div className="w-3 h-3 bg-red-600 rounded-full mr-2"></div>
-                    <span className="text-xs">Critical</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                    <span className="text-xs">High</span>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="w-3 h-3 bg-orange-500 rounded-full mr-2"></div>
-                    <span className="text-xs">Moderate</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* City Statistics Panel */}
           {selectedCity && (
@@ -203,7 +157,6 @@ const EnvironmentalCrisisSection = () => {
             <div className="text-sm text-text-secondary">Annual increase in waste generation</div>
           </div>
         </div>
-      </div>
     </section>
   );
 };
